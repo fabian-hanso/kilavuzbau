@@ -37,13 +37,13 @@ export default function ContainerOverview() {
           <div className="mt-12 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0 md:mt-32 mb-12 md:mb-0">
             {callouts.map((callout) => (
               <div key={callout.name} className="group relative border-2 border-red-700">
-                <div className="w-full relative">
+                <div className="w-full relative border-b-2 border-red-700">
                     <img
                     alt={callout.imageAlt}
                     src={callout.imageSrc}
                     className="w-full bg-white object-cover max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
                     />
-                    <div className="absolute top-0 right-0 left-0 bottom-0 bg-red-700 opacity-0 group-hover:opacity-40"></div>
+                    <div className="absolute top-0 right-0 left-0 bottom-0 bg-red-700 opacity-0 group-hover:opacity-40 transition-all"></div>
                 </div>
                 
                 <div className="p-6">
