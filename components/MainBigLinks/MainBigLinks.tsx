@@ -17,10 +17,10 @@ const features = [
     icon: HomeIcon,
   },
   {
-    name: 'Containerservice',
+    name: 'Containerdienst',
     description:
       'Flexibler Containerservice für Bauprojekte, Gartenabfälle und fachgerechte Entsorgung – schnell geliefert, zuverlässig abgeholt und sauber organisiert.',
-    href: '#',
+    href: '/containerdienst',
     icon: ArchiveBoxIcon,
   },
 ]
