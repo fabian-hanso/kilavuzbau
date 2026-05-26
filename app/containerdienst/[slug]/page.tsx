@@ -28,7 +28,7 @@ export default function Page() {
 
   return (
     <div className="bg-white pt-24">
-      <div className="mx-auto max-w-2xl px-4 py-16 md:py-0 md:pb-32 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      <div className="mx-auto max-w-2xl px-6 py-16 md:py-0 md:pb-32 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
         {/* Product details */}
         <div className="lg:max-w-lg lg:self-end">
           <nav aria-label="Breadcrumb">
