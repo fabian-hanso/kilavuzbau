@@ -1,11 +1,9 @@
-import MainBigLinks from "@/components/MainBigLinks/MainBigLinks";
-import MainHero from "@/components/MainHero/MainHero";
+import ContainerOverview from "@/components/ContainerOverview/ContainerOverview";
 
 export default function Home() {
   return (
-    <div className="bg-white mt-24">
-      <MainHero />
-      <MainBigLinks />
+    <div className="bg-white pt-24">
+      <ContainerOverview />
     </div>
   );
 }

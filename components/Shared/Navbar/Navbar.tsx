@@ -21,7 +21,7 @@ export default function Navbar() {
           <span className="sr-only">Delil Kilavuz GmbH</span>
           <img
             alt=""
-            src="logo-1.jpg"
+            src="/logo-1.jpg"
             className="h-12 w-auto"
           />
         </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
               <span className="sr-only">Your Company</span>
               <img
                 alt="/"
-                src="logo-1.jpg"
+                src="/logo-1.jpg"
                 className="h-12 w-auto"
               />
             </Link>
