@@ -2,6 +2,7 @@ const callouts = [
   {
     name: '3 Größen',
     description: 'Baumischcontainer',
+    lowestPrice: "325,00€",
     imageSrc: '/container.placeholder.jpg',
     imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
     href: '/containerdienst/baumischcontainer',
@@ -9,6 +10,7 @@ const callouts = [
   {
     name: '3 Größen',
     description: 'Baumischcontainer',
+    lowestPrice: "325,00€",
     imageSrc: '/container.placeholder.jpg',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
     href: '/containerdienst/baumischcontainer',
@@ -16,6 +18,7 @@ const callouts = [
   {
     name: '3 Größen',
     description: 'Baumischcontainer',
+    lowestPrice: "325,00€",
     imageSrc: '/container.placeholder.jpg',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '/containerdienst/baumischcontainer',
@@ -54,6 +57,12 @@ export default function ContainerOverview() {
                   </a>
                 </h3>
                 <p className="text-base font-semibold text-gray-900 group-hover:text-red-700 transition-all">{callout.description}</p>
+                <h3 className="text-sm text-gray-500">
+                  <a href={callout.href}>
+                    <span className="absolute inset-0" />
+                    ab {callout.lowestPrice}
+                  </a>
+                </h3>
                 </div>
               </div>
             ))}
