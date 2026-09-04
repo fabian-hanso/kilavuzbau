@@ -52,7 +52,7 @@ function AnfrageForm() {
 
   if (status === 'success') {
     return (
-      <div className="mx-auto max-w-2xl px-6 py-24 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-6 py-16 text-center sm:px-6 md:py-20 lg:max-w-7xl lg:px-8 lg:py-24">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Vielen Dank für Ihre Anfrage!</h1>
         <p className="mt-4 text-base text-gray-600">Wir melden uns schnellstmöglich bei Ihnen.</p>
       </div>
@@ -60,8 +60,15 @@ function AnfrageForm() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Container anfragen</h1>
+    <div className="mx-auto max-w-2xl px-6 py-16 sm:px-6 md:py-20 lg:max-w-7xl lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-2xl lg:text-center">
+        <h1 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance">
+          <span className="text-red-700 animate-pulse duration-100">/ </span>Container anfragen
+        </h1>
+        <p className="mt-6 text-lg/8 text-gray-600">
+          Füllen Sie das Formular aus und wir melden uns schnellstmöglich mit einem passenden Angebot bei Ihnen.
+        </p>
+      </div>
 
       {container ? (
         <div className="mt-6 border-2 border-red-700 p-4">

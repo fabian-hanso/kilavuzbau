@@ -5,6 +5,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useState, type FormEvent } from 'react'
 import { useParams, useRouter, notFound } from 'next/navigation'
 import { containerData } from '@/data/containerData'
+import ContainerIllustration from '@/components/Shared/ContainerIllustration/ContainerIllustration'
 
 export default function Page() {
   const { slug } = useParams<{ slug: string }>()
@@ -36,10 +37,15 @@ export default function Page() {
   ]
 
   return (
-    <div className="bg-white pt-24">
-      <div className="mx-auto max-w-2xl px-6 py-16 md:py-0 md:pb-32 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-        {/* Product details */}
-        <div className="lg:max-w-lg lg:self-end">
+    <div className="bg-white pt-48">
+      <div className="mx-auto max-w-2xl px-6 py-16 md:py-0 md:pb-32 sm:px-6 lg:flex lg:items-start lg:max-w-7xl lg:gap-x-8 lg:px-8">
+        {/* Product image */}
+        <div className="relative aspect-square w-full overflow-hidden bg-gray-50 lg:order-2 lg:w-1/2 lg:shrink-0">
+          <ContainerIllustration />
+        </div>
+
+        {/* Left column: details, allowed materials, form */}
+        <div className="mt-10 lg:order-1 lg:mt-0 lg:max-w-lg">
           <nav aria-label="Breadcrumb">
             <ol role="list" className="flex items-center space-x-2">
               {breadcrumbs.map((breadcrumb, breadcrumbIdx) => (
@@ -92,16 +98,22 @@ export default function Page() {
               </div>
             </div>
           </section>
-        </div>
 
-        {/* Product image */}
-        <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
-          <img alt={container.imageAlt} src={container.imageSrc} className="aspect-square w-full object-cover" />
-        </div>
+          {/* Allowed materials */}
+          <div className="mt-10">
+            <h2 className="text-lg font-semibold text-gray-900">Was darf in den Container?</h2>
+            <ul className="mt-4 space-y-3 text-sm text-gray-600">
+              {activeContainer.allowedMaterials.map((material) => (
+                <li key={material} className="flex items-start gap-x-2">
+                  <CheckIcon aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-red-700" />
+                  <span>{material}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Product form */}
-        <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
-          <section aria-labelledby="options-heading">
+          {/* Product form */}
+          <section aria-labelledby="options-heading" className="mt-10">
             <h2 id="options-heading" className="sr-only">
               Product options
             </h2>

@@ -25,6 +25,7 @@ export type ContainerType = {
   imageSrc: string
   imageAlt: string
   sizes: ContainerSize[]
+  allowedMaterials: string[]
 }
 
 export const containerData: ContainerType[] = [
@@ -43,6 +44,15 @@ export const containerData: ContainerType[] = [
       { name: '7m³', price: '734,00€' },
       { name: '10m³', price: '1116,00€' },
     ],
+    allowedMaterials: [
+      'Holzreste, Folien, Metalle, Putzreste',
+      'Mörtel- und Betonreste mit Verpackungen und Gipskarton gemischt',
+      'Kabelreste, Rohre, Kunststoffe zusammen mit mineralischen Materialien',
+      'Türen, Fensterrahmen (ohne Schadstoffe)',
+      'Tapetenreste, Dämmstoffe (nicht gefährlich)',
+      'Verpackungen (Papier, Folie, Karton) aus Bauarbeiten',
+      'Kleinere Mengen Glas, Kunststoffe oder Metalle, die nicht separat gesammelt wurden',
+    ],
   },
   {
     id: 2,
@@ -56,6 +66,13 @@ export const containerData: ContainerType[] = [
     sizes: [
       { name: '5m³', price: '385,00€' },
       { name: '7m³', price: '565,00€' },
+    ],
+    allowedMaterials: [
+      'Mischung aus Beton- und Ziegelbruch',
+      'Fliesen mit Betonresten',
+      'Keramik (z. B. Waschbecken, Toiletten) zusammen mit Ziegeln oder Beton',
+      'Abrissmaterial von Wänden, Decken oder Böden mit verschiedenen mineralischen Bestandteilen',
+      'Straßenaufbruch (mineralisch, ohne Teer oder Schadstoffe)',
     ],
   },
   {
@@ -72,6 +89,14 @@ export const containerData: ContainerType[] = [
       { name: '7m³', price: '214,00€' },
       { name: '10m³', price: '250,00€' },
     ],
+    allowedMaterials: [
+      'Asphalt ohne Teeranteil',
+      'Betonabbruch (z. B. Straßenplatten, Fundamente, Randsteine)',
+      'Ziegelsteine, Klinker, Mauerwerk',
+      'Pflastersteine, Gehwegplatten, Bordsteine',
+      'Fliesen- und Keramikbruch',
+      'Mischungen aus den genannten Stoffen (klassischer Straßenaufbruch)',
+    ],
   },
   {
     id: 4,
@@ -86,6 +111,13 @@ export const containerData: ContainerType[] = [
       { name: '5m³', price: '290,00€' },
       { name: '7m³', price: '380,00€' },
     ],
+    allowedMaterials: [
+      'Betonabbruch aus Hoch- und Tiefbau (Fundamente, Bodenplatten, Decken, Wände)',
+      'Unbehandelter Beton aus Rück- und Umbauten',
+      'Stahlbeton (Armierungseisen ist zulässig)',
+      'Bruchstücke von Betonfertigteilen',
+      'Betonreste aus dem Straßen- und Wegebau (sofern ohne Asphalt/Teer)',
+    ],
   },
   {
     id: 5,
@@ -99,6 +131,12 @@ export const containerData: ContainerType[] = [
     sizes: [
       { name: '5m³', price: '412,00€' },
       { name: '7m³', price: '613,00€' },
+    ],
+    allowedMaterials: [
+      'Erdaushub mit Grasnarbe, Wurzelresten oder Bewuchs',
+      'Boden aus Baugruben, bei dem Oberboden und Muttererde nicht separat abgeschoben wurden',
+      'Bodenschichten mit leichter Durchmischung aus Wurzeln, Rasen, Sträuchern',
+      'Mineralischer Untergrund mit Humus- oder Wurzelanteilen',
     ],
   },
   {
@@ -117,6 +155,15 @@ export const containerData: ContainerType[] = [
       { name: '19m³', price: '645,00€' },
       { name: '40m³', price: '885,00€' },
     ],
+    allowedMaterials: [
+      'Rigipsplatten (Gipskartonplatten, GK-Platten)',
+      'Stuckgips, Formgips',
+      'Gipsreste aus Bau- und Abbruchmaßnahmen',
+      'Gipskarton mit Papierkaschierung',
+      'Gipsblöcke, Gipsbauplatten',
+      'Verschnittreste aus Neubau und Ausbau',
+      'Deckenplatten aus Gips',
+    ],
   },
   {
     id: 7,
@@ -130,6 +177,14 @@ export const containerData: ContainerType[] = [
     sizes: [
       { name: '5m³', price: '632,00€' },
       { name: '7m³', price: '985,00€' },
+    ],
+    allowedMaterials: [
+      'Gussasphalt aus Straßen- und Wegebau (Oberflächen, Deckschichten, Abdichtungen)',
+      'Walzasphalt, Splittmastixasphalt',
+      'Dach- und Brückenabdichtungen aus Gussasphalt (wenn teerfrei)',
+      'Fahrbahndecken, Parkflächenbeläge',
+      'Bituminöse Estriche',
+      'Fugenmassen, sofern sie auf Bitumen basieren und nicht teerhaltig sind',
     ],
   },
   {
@@ -145,6 +200,7 @@ export const containerData: ContainerType[] = [
       { name: '5m³', price: '387,00€' },
       { name: '7m³', price: '556,00€' },
     ],
+    allowedMaterials: ['Betondachsteine', 'Tondachziegel', 'Gemischte Dachabdeckungen'],
   },
   {
     id: 9,
@@ -158,6 +214,13 @@ export const containerData: ContainerType[] = [
     sizes: [
       { name: '5m³', price: '637,00€' },
       { name: '7m³', price: '995,00€' },
+    ],
+    allowedMaterials: [
+      'Bauschutt mit Leichtbaustoffen, die Asbest, KMF (künstliche Mineralfasern) oder andere Schadstoffe enthalten',
+      'Beton oder Mauerwerk mit Teer-, PAK- oder PCB-haltigen Beschichtungen',
+      'Verputzte Bauteile mit asbesthaltigen Putzen oder Spachtelmassen',
+      'Keramik oder Fliesen mit kontaminierten Anhaftungen',
+      'Abbruchmaterial, das Holzschutzmittel oder Schwermetalle aufweist',
     ],
   },
   {
@@ -173,6 +236,13 @@ export const containerData: ContainerType[] = [
       { name: '5m³', price: '400,00€' },
       { name: '7m³', price: '590,00€' },
     ],
+    allowedMaterials: [
+      'Bodenaushub mit Ziegel-, Beton- oder Natursteinresten',
+      'Erdaushub beim Rückbau von Gebäuden, bei dem Mauerwerk- oder Fundamentreste enthalten sind',
+      'Steine, Kies, Schotter aus Baugruben',
+      'Nicht verunreinigter Straßenunterbau (ohne Teer/PAK)',
+      'Erde mit Bauschuttstücken (Beton, Ziegel)',
+    ],
   },
   {
     id: 11,
@@ -187,6 +257,15 @@ export const containerData: ContainerType[] = [
       { name: '5m³', price: '512,00€' },
       { name: '7m³', price: '656,00€' },
     ],
+    allowedMaterials: [
+      'Erdaushub aus Baugruben und Baugräben',
+      'Bodenmassen mit Sand, Kies, Lehm, Ton',
+      'Steine und Felsstücke',
+      'Aushub mit Grasnarbe oder geringen Wurzelanteilen',
+      'Bodenaushub mit mineralischen Beimengungen (z. B. Ziegel- oder Betonreste in kleiner Menge)',
+      'Straßenunterbau ohne Teeranteile',
+      'Nicht kontaminierter Boden aus Rück- oder Umbaumaßnahmen',
+    ],
   },
   {
     id: 12,
@@ -200,6 +279,12 @@ export const containerData: ContainerType[] = [
     sizes: [
       { name: '5m³', price: '290,00€' },
       { name: '7m³', price: '380,00€' },
+    ],
+    allowedMaterials: [
+      'Betonbruch aus Abbruchmaßnahmen (Fundamente, Bodenplatten, Decken, Wände)',
+      'Stahlbetonbrocken (inkl. Armierung, Eisen darf enthalten sein)',
+      'Übergrößen: massive Blöcke oder große Stücke, die vor der Verwertung zerkleinert werden müssen',
+      'Unbehandelter Beton aus Rückbau oder Straßenbau',
     ],
   },
   // Grünschnitt & Gartenabfälle
@@ -219,6 +304,14 @@ export const containerData: ContainerType[] = [
       { name: '19m³', price: '722,00€' },
       { name: '40m³', price: '1338,00€' },
     ],
+    allowedMaterials: [
+      'Rasenschnitt, Laub, Unkraut',
+      'Strauchschnitt, Hecken- und Baumschnitt (Äste, Zweige)',
+      'Blumen, Stauden, Pflanzenreste',
+      'Fallobst',
+      'Kleine Wurzelstücke (ohne Erde)',
+      'Weihnachtsbäume (unbehandelt, ohne Schmuck)',
+    ],
   },
   // Holz
   {
@@ -237,6 +330,15 @@ export const containerData: ContainerType[] = [
       { name: '19m³', price: '622,00€' },
       { name: '40m³', price: '753,00€' },
     ],
+    allowedMaterials: [
+      'Möbelplatten (Spanplatten, MDF, OSB)',
+      'Türen, Regalteile, Schrankwände',
+      'Lackierte, furnierte, beschichtete Hölzer',
+      'Innentüren mit Laminat- oder Lackschicht',
+      'Holz mit PVC-Beschichtungen oder kunststoffhaltigen Beschichtungen',
+      'Lackierte oder behandelte Bauteile mit Chlor- oder anderen halogenorganischen Bestandteilen in den Anstrichen',
+      'Furnierte oder dekorbeschichtete Möbel mit Kunststoffüberzügen',
+    ],
   },
   {
     id: 15,
@@ -253,6 +355,14 @@ export const containerData: ContainerType[] = [
       { name: '10m³', price: '744,00€' },
       { name: '19m³', price: '850,00€' },
       { name: '40m³', price: '1170,00€' },
+    ],
+    allowedMaterials: [
+      'Bahnschwellen, Leitungsmasten, Zaunpfähle mit Teeröl oder Kreosot',
+      'Holzfenster, Außentüren und Fassadenhölzer mit Holzschutzmitteln (z. B. Lindan, PCP)',
+      'Gartenholz, Spielgeräte, Palisaden, die mit Holzschutzmitteln imprägniert wurden',
+      'Imprägnierte Dachkonstruktionen, Sparren oder Dachlatten',
+      'Außenmöbel aus behandeltem Holz',
+      'Eisenbahnschwellen, Rebenpfähle',
     ],
   },
   // Papier, Kunststoffe & Mischabfälle
@@ -272,6 +382,13 @@ export const containerData: ContainerType[] = [
       { name: '19m³', price: '1243,00€' },
       { name: '40m³', price: '1784,00€' },
     ],
+    allowedMaterials: [
+      'Möbelstücke (Schränke, Tische, Stühle, Sofas, Betten, Matratzen)',
+      'Teppiche, Auslegeware, Vorhänge',
+      'Lattenroste, Regale, Kommoden',
+      'Koffer, große Spielsachen, Sportgeräte',
+      'Sonstige sperrige Einrichtungsgegenstände',
+    ],
   },
   {
     id: 17,
@@ -288,6 +405,14 @@ export const containerData: ContainerType[] = [
       { name: '10m³', price: '183,40€' },
       { name: '19m³', price: '228,78€' },
       { name: '40m³', price: '277,29€' },
+    ],
+    allowedMaterials: [
+      'Zeitungen, Zeitschriften, Kataloge',
+      'Bücher (ohne Kunststoff- oder Ledereinband)',
+      'Schreibpapier, Kopierpapier',
+      'Briefumschläge, Büro- und Druckerpapier',
+      'Kartons und Verpackungen aus Pappe',
+      'Wellpappe, Schachteln, Papiertüten',
     ],
   },
 ]
