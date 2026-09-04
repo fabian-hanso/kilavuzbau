@@ -28,7 +28,9 @@ function AnfrageForm() {
       name: formData.get('name'),
       email: formData.get('email'),
       telefon: formData.get('telefon'),
-      adresse: formData.get('adresse'),
+      strasse: formData.get('strasse'),
+      plz: formData.get('plz'),
+      ort: formData.get('ort'),
       von: formData.get('von'),
       bis: formData.get('bis'),
       nachricht: formData.get('nachricht'),
@@ -138,12 +140,37 @@ function AnfrageForm() {
         </div>
 
         <div>
-          <label htmlFor="adresse" className="block text-sm font-medium text-gray-700">
-            Lieferadresse
+          <label htmlFor="strasse" className="block text-sm font-medium text-gray-700">
+            Straße
           </label>
           <input
-            id="adresse"
-            name="adresse"
+            id="strasse"
+            name="strasse"
+            type="text"
+            className="mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 focus:border-red-700 focus:outline-none"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="plz" className="block text-sm font-medium text-gray-700">
+            Postleitzahl
+          </label>
+          <input
+            id="plz"
+            name="plz"
+            type="text"
+            inputMode="numeric"
+            className="mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 focus:border-red-700 focus:outline-none"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="ort" className="block text-sm font-medium text-gray-700">
+            Ort
+          </label>
+          <input
+            id="ort"
+            name="ort"
             type="text"
             className="mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 focus:border-red-700 focus:outline-none"
           />
