@@ -2,29 +2,38 @@
 
 import { CheckCircleIcon, CheckIcon} from '@heroicons/react/20/solid'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
-
-const product = {
-  name: 'Baumischcontainer',
-  href: '#',
-  description:
-    "Don't compromise on snack-carrying capacity with this lightweight and spacious bag. The drawstring top keeps all your favorite chips, crisps, fries, biscuits, crackers, and cookies secure.",
-  imageSrc: '/container.placeholder.jpg',
-  imageAlt: 'Model wearing light green backpack with black canvas straps and front zipper pouch.',
-  breadcrumbs: [
-    { id: 1, name: 'Containerdienst', href: '/containerdienst' },
-    { id: 2, name: 'Baumischcontainer', href: '#' },
-  ],
-  sizes: [
-    { name: '1m³', price: "325,00€" },
-    { name: '5m³', price: "550,00€" },
-    { name: '7m³', price: "750,00€" },
-  ],
-}
+import { useState, type FormEvent } from 'react'
+import { useParams, useRouter, notFound } from 'next/navigation'
+import { containerData } from '@/data/containerData'
 
 export default function Page() {
+  const { slug } = useParams<{ slug: string }>()
+  const router = useRouter()
+  const container = containerData.find((item) => item.slug === slug)
 
-    const [price, setPrice] = useState(product.sizes[0].price)
+  const [price, setPrice] = useState(container?.sizes[0]?.price)
+  const [selectedSize, setSelectedSize] = useState(container?.sizes[0]?.name)
+
+  if (!container) {
+    notFound()
+  }
+
+  const activeContainer = container
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const params = new URLSearchParams({
+      container: activeContainer.slug,
+      size: selectedSize ?? activeContainer.sizes[0].name,
+    })
+    router.push(`/anfrage?${params.toString()}`)
+  }
+
+  const breadcrumbs = [
+    { id: 1, name: 'Containerdienst', href: '/containerdienst' },
+    { id: 2, name: container.category, href: '/containerdienst' },
+    { id: 3, name: container.name, href: '#' },
+  ]
 
   return (
     <div className="bg-white pt-24">
@@ -33,13 +42,13 @@ export default function Page() {
         <div className="lg:max-w-lg lg:self-end">
           <nav aria-label="Breadcrumb">
             <ol role="list" className="flex items-center space-x-2">
-              {product.breadcrumbs.map((breadcrumb, breadcrumbIdx) => (
+              {breadcrumbs.map((breadcrumb, breadcrumbIdx) => (
                 <li key={breadcrumb.id}>
                   <div className="flex items-center text-sm">
                     <a href={breadcrumb.href} className="font-medium text-gray-500 hover:text-gray-900">
                       {breadcrumb.name}
                     </a>
-                    {breadcrumbIdx !== product.breadcrumbs.length - 1 ? (
+                    {breadcrumbIdx !== breadcrumbs.length - 1 ? (
                       <svg
                         fill="currentColor"
                         viewBox="0 0 20 20"
@@ -56,7 +65,7 @@ export default function Page() {
           </nav>
 
           <div className="mt-4">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{product.name}</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{container.name}</h1>
           </div>
 
           <section aria-labelledby="information-heading" className="mt-4">
@@ -69,7 +78,7 @@ export default function Page() {
             </div>
 
             <div className="mt-4 space-y-6">
-              <p className="text-base text-gray-500">{product.description}</p>
+              <p className="text-base text-gray-500">{container.description}</p>
             </div>
 
             <div className='flex flex-col mt-6'>
@@ -87,7 +96,7 @@ export default function Page() {
 
         {/* Product image */}
         <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
-          <img alt={product.imageAlt} src={product.imageSrc} className="aspect-square w-full object-cover" />
+          <img alt={container.imageAlt} src={container.imageSrc} className="aspect-square w-full object-cover" />
         </div>
 
         {/* Product form */}
@@ -97,13 +106,13 @@ export default function Page() {
               Product options
             </h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="sm:flex sm:justify-between">
                 {/* Size selector */}
                 <fieldset className='w-full'>
                   <legend className="block text-sm font-medium text-gray-700">Größe</legend>
                   <div className="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    {product.sizes.map((size) => (
+                    {container.sizes.map((size) => (
                       <label
                         key={size.name}
                         aria-label={size.name}
@@ -112,8 +121,11 @@ export default function Page() {
                       >
                         <input
                           defaultValue={size.name}
-                          defaultChecked={size === product.sizes[0]}
-                          onChange={() => setPrice(size.price)}
+                          defaultChecked={size === activeContainer.sizes[0]}
+                          onChange={() => {
+                            setPrice(size.price)
+                            setSelectedSize(size.name)
+                          }}
                           name="size"
                           type="radio"
                           className="absolute inset-0 appearance-none focus:outline focus:outline-0 cursor-pointer"
